@@ -1,0 +1,45 @@
+public abstract class Animal {
+    private String nome;
+    
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public abstract void emitirSom();
+}
+
+public class Cachorro extends Animal {
+    public Cachorro(String nome) {
+        super(nome);
+    }
+    
+    @Override
+    public void emitirSom() {
+        System.out.println(getNome() + " está latindo");
+    }
+}
+
+public class Gato extends Animal {
+    public Gato(String nome) {
+        super(nome);
+    }
+    
+    @Override
+    public void emitirSom() {
+        System.out.println(getNome() + " está miando");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal cachorro = new Cachorro("Rex");
+        Animal gato = new Gato("Miau");
+        
+        cachorro.emitirSom(); // saída: Rex está latindo
+        gato.emitirSom(); // saída: Miau está miando
+    }
+}
